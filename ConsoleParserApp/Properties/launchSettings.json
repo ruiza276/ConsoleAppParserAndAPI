@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ConsoleParserApp": {
+      "commandName": "Project",
+      "commandLineArgs": "TifaFile.txt CloudFile.txt AerithFile.txt",
+      "workingDirectory": "C:\\Users\\aruiz\\Desktop\\TestFolder"
+    }
+  }
+}

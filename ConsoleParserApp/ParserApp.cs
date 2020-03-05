@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System;
 using System.IO;
 using NLog;
 
 namespace ConsoleParserApp
 {
-    public class Program
+    public class ParserApp
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public void Main(string[] args)
+        static void GetFiles(string[] args)
         {
             if (args.Length != 3)
             {
@@ -46,5 +49,6 @@ namespace ConsoleParserApp
                 Logger.Error(ex);
             }
         }
+    
     }
 }

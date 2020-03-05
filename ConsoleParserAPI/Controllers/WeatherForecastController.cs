@@ -29,6 +29,8 @@ namespace ConsoleParserAPI.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            ConsoleParserApp.Program pr = new ConsoleParserApp.Program();
+            pr.Main();
             RunEngine runEngine = new RunEngine();
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

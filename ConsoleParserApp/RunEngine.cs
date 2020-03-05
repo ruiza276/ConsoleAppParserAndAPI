@@ -115,7 +115,7 @@ namespace ConsoleParserApp
 
         }
 
-        public void PublishCombinedRecordsToTextFile()
+        public void PublishCombinedRecordsToTextFile() //This is not needed BUT it doesn't hurt to have it.
         {
             using (StreamWriter sw = (File.Exists("CombineSetRecords.txt")) ? File.AppendText("CombineSetRecords.txt") : File.CreateText("CombineSetRecords.txt"))
             {
@@ -126,32 +126,40 @@ namespace ConsoleParserApp
             }
         }
 
-        public void PublishGenderSortedRecords()
+        public List<Record> PublishGenderSortedRecords()
         {
-            Console.WriteLine("Records Sorted by Gender and Last Name: \n");
+            List<Record> GenderSortedRecords = new List<Record>();
+            Console.WriteLine("\nRecords Sorted by Gender and Last Name: \n");
             foreach (var item in (totalRecords.OrderBy(o => o.GenderFlag).ThenBy(o => o.LastName)))
             {
+                GenderSortedRecords.Add(item);
                 Console.WriteLine(item);
             }
-
+            return GenderSortedRecords;
         }
 
-        public void PublishBirthdaySortedRecords()
+        public List<Record> PublishBirthdaySortedRecords()
         {
-            Console.WriteLine("Records Sorted by Date of Birth: \n");
+            List<Record> BdaySortedRecords = new List<Record>();
+            Console.WriteLine("\nRecords Sorted by Date of Birth: \n");
             foreach (var item in (totalRecords.OrderBy(o => o.DateOfBirth)))
             {
+                BdaySortedRecords.Add(item);
                 Console.WriteLine(item);
             }
+            return BdaySortedRecords;
         }
 
-        public void PublishLastNameSortedRecords()
+        public List<Record> PublishLastNameSortedRecords()
         {
-            Console.WriteLine("Records Sorted by Last Name: \n");
+            List<Record> LastNameSorted = new List<Record>();
+            Console.WriteLine("\nRecords Sorted by Last Name: \n");
             foreach (var item in (totalRecords.OrderByDescending(o => o.LastName)))
             {
+                LastNameSorted.Add(item);
                 Console.WriteLine(item);
             }
+            return LastNameSorted;
         }
     }
 }

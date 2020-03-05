@@ -3,23 +3,22 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:54285",
-      "sslPort": 44376
+      "applicationUrl": "http://localhost:61914",
+      "sslPort": 44307
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "commandLineArgs": "TifaFile.txt CloudFile.txt AerithFile.txt",
       "workingDirectory": "C:\\Users\\aruiz\\Desktop\\TestFolder",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "records",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ConsoleParserAPI": {
+    "ParserAPI": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

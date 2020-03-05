@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System;
 using System.IO;
 using NLog;
+using System.Threading.Tasks;
+using ConsoleParserApp;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text.Json;
 
 namespace ConsoleParserApp
 {
@@ -11,8 +15,17 @@ namespace ConsoleParserApp
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        static void GetFiles(string[] args)
+        public string genderJson;
+        public string bdayJson;
+        public string lastNameJson;
+
+        public string firstFilePath;
+        public string secondFilePath;
+        public string thirdFilePath;
+
+        public void GetParserTask(string[] args)
         {
+
             if (args.Length != 3)
             {
                 System.ArgumentException argEx = new System.ArgumentException("Correct amount of File Paths needs to be entered please!", "Too Much/Too Little!");
@@ -28,7 +41,7 @@ namespace ConsoleParserApp
                 {
                     if (File.Exists(fileName))
                     {
-                        
+
                         runEngine.ReadingEngine(fileName);
                     }
                     else
@@ -36,19 +49,25 @@ namespace ConsoleParserApp
                         System.ArgumentException argEx = new System.ArgumentException("File Doesn't Exist! Please Check Directory!!! Check the C: Drive! Check the Hard Drive!!!! Call the FBI!!", "AHHHHHHHHHHHHHHHHHHHHHh");
                         Logger.Error(argEx);
                         Console.WriteLine(argEx);
-                        
+
                     }
                 }
-                //runEngine.PublishCombinedRecordsToTextFile();
-                runEngine.PublishGenderSortedRecords();
-                runEngine.PublishBirthdaySortedRecords();
-                runEngine.PublishLastNameSortedRecords();
+                //runEngine.PublishCombinedRecordsToTextFile(); In case you wanted a text file generated...
+                var gender = runEngine.PublishGenderSortedRecords();
+                var bday = runEngine.PublishBirthdaySortedRecords();
+                var lastName = runEngine.PublishLastNameSortedRecords();
+
+                //genderJson = new StringContent(JsonSerializer.Serialize(gender), Encoding.UTF8, "application/json");
+                genderJson = JsonSerializer.Serialize(gender);
+                bdayJson = JsonSerializer.Serialize(bday);
+                lastNameJson = JsonSerializer.Serialize(lastName);
+
             }
             catch (Exception ex)
             {
                 Logger.Error(ex);
             }
         }
-    
+
     }
 }

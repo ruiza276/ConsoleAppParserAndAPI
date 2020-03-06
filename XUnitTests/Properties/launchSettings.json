@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "XUnitTests": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\aruiz\\Desktop\\TestFolder"
+    }
+  }
+}

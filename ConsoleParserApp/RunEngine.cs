@@ -13,7 +13,7 @@ namespace ConsoleParserApp
         //Logger GetLogger = new Logger(); Need to instanciate logger for propper debug logging or at least some d=sort of logging
         Logger logger = LogManager.GetLogger("Logger");
 
-        List<Record> totalRecords = new List<Record>();
+        public List<Record> totalRecords = new List<Record>();
         
         public void ReadingEngine(string fileName)
         {
@@ -104,7 +104,7 @@ namespace ConsoleParserApp
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 System.ArgumentException argEx = new System.ArgumentException("Something went wrong with the ReadingEngine!!!", "ReadingEngine");

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleParserApp", "ConsoleParserApp\ConsoleParserApp.csproj", "{768FBC5A-76F2-4765-BDD2-313A19428301}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserAPI", "ParserAPI\ParserAPI.csproj", "{F14B99E9-1587-4827-9059-0D61524B5591}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParserAPI", "ParserAPI\ParserAPI.csproj", "{F14B99E9-1587-4827-9059-0D61524B5591}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTests", "XUnitTests\XUnitTests.csproj", "{1E9DCAA9-383F-4BD7-B46B-152353692E31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F14B99E9-1587-4827-9059-0D61524B5591}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F14B99E9-1587-4827-9059-0D61524B5591}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F14B99E9-1587-4827-9059-0D61524B5591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E9DCAA9-383F-4BD7-B46B-152353692E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E9DCAA9-383F-4BD7-B46B-152353692E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E9DCAA9-383F-4BD7-B46B-152353692E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E9DCAA9-383F-4BD7-B46B-152353692E31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

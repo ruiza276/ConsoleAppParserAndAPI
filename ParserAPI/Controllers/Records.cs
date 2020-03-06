@@ -31,7 +31,7 @@ namespace ParserAPI.Controllers
         [Route("Test")]
         public ActionResult Test()
         {
-            return Ok("You have reached the Parser Api test endpoint");
+            return Ok("Hi hello friend!! ParserAPI is up and running! :D");
         }
 
         [HttpGet]

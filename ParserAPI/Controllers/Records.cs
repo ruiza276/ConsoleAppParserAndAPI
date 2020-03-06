@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ConsoleParserApp;
 using ConsoleParserApp.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace ParserAPI.Controllers
 {
@@ -16,12 +17,13 @@ namespace ParserAPI.Controllers
 
         ParserApp parserApp = new ParserApp();
         string[] args = new string[3];
-
+        private IConfiguration config;
         private readonly ILogger<Records> _logger;
 
-        public Records(ILogger<Records> logger)
+        public Records(ILogger<Records> logger, IConfiguration Iconfig)
         {
             _logger = logger;
+            config = Iconfig;
         }
 
 
@@ -37,9 +39,9 @@ namespace ParserAPI.Controllers
         [ProducesResponseType(statusCode: 200, type: typeof(string))]
         public ActionResult GetGenderSorted()
         {
-            args[0] = @"C:\Users\aruiz\Desktop\TestFolder\TifaFile.txt";
-            args[1] = @"C:\Users\aruiz\Desktop\TestFolder\CloudFile.txt";
-            args[2] = @"C:\Users\aruiz\Desktop\TestFolder\AerithFile.txt";
+            args[0] = config.GetSection("FilePath1").Value;
+            args[1] = config.GetSection("FilePath2").Value;
+            args[2] = config.GetSection("FilePath3").Value;
             parserApp.GetParserTask(args);
             return Ok(parserApp.genderJson);
         }
@@ -50,9 +52,9 @@ namespace ParserAPI.Controllers
         public ActionResult GetBirthdateSorted()
         {
 
-            args[0] = @"C:\Users\aruiz\Desktop\TestFolder\TifaFile.txt";
-            args[1] = @"C:\Users\aruiz\Desktop\TestFolder\CloudFile.txt";
-            args[2] = @"C:\Users\aruiz\Desktop\TestFolder\AerithFile.txt";
+            args[0] = config.GetSection("FilePath1").Value;
+            args[1] = config.GetSection("FilePath2").Value;
+            args[2] = config.GetSection("FilePath3").Value;
             parserApp.GetParserTask(args);
             return Ok(parserApp.bdayJson);
         }
@@ -63,9 +65,9 @@ namespace ParserAPI.Controllers
         public ActionResult GetNameSorted()
         {
 
-            args[0] = @"C:\Users\aruiz\Desktop\TestFolder\TifaFile.txt";
-            args[1] = @"C:\Users\aruiz\Desktop\TestFolder\CloudFile.txt";
-            args[2] = @"C:\Users\aruiz\Desktop\TestFolder\AerithFile.txt";
+            args[0] = config.GetSection("FilePath1").Value;
+            args[1] = config.GetSection("FilePath2").Value;
+            args[2] = config.GetSection("FilePath3").Value;
             parserApp.GetParserTask(args);
             return Ok(parserApp.lastNameJson);
         }

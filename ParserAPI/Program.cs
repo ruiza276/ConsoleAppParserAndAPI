@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
+using Microsoft.Extensions.Configuration.CommandLine;
+using Microsoft.Extensions.Configuration.Json;
 namespace ParserAPI
 {
     public class Program

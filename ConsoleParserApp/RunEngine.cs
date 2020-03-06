@@ -34,7 +34,7 @@ namespace ConsoleParserApp
                             pipeRecord.FavoriteColor = (line.Split("|"))[3];
                             pipeRecord.DateOfBirth = DateTime.Parse((line.Split(" "))[4]); //WHY
                             pipeRecord.DelimiterFlag = "|";
-                            if (pipeRecord.Gender.Trim() == "F")
+                            if (pipeRecord.Gender.Trim().ToUpper() == "F")
                             {
                                 pipeRecord.GenderFlag = 0;
 
@@ -60,7 +60,7 @@ namespace ConsoleParserApp
                             commaRecord.DelimiterFlag = ",";
 
 
-                            if (commaRecord.Gender.Trim() == "F")
+                            if (commaRecord.Gender.Trim().ToUpper() == "F")
                             {
                                 commaRecord.GenderFlag = 0;
 
@@ -89,7 +89,7 @@ namespace ConsoleParserApp
                             spaceRecord.DateOfBirth = formattedDay.Date; //WHY??
                             spaceRecord.DelimiterFlag = " ";
 
-                            if (spaceRecord.Gender.Trim() == "F")
+                            if (spaceRecord.Gender.Trim().ToUpper() == "F")
                             {
                                 spaceRecord.GenderFlag = 0;
 

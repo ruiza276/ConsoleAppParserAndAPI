@@ -13,7 +13,7 @@
       "commandName": "IISExpress",
       "workingDirectory": "C:\\Users\\aruiz\\Desktop\\TestFolder",
       "launchBrowser": true,
-      "launchUrl": "records",
+      "launchUrl": "records/test",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

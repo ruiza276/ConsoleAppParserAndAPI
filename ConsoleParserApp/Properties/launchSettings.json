@@ -3,7 +3,7 @@
     "ConsoleParserApp": {
       "commandName": "Project",
       "commandLineArgs": "TifaFile.txt CloudFile.txt AerithFile.txt",
-      "workingDirectory": "C:\\Users\\aruiz\\Desktop\\TestFolder"
+      "workingDirectory": "C:\\Users\\aruiz\\source\\repos\\ConsoleParserApp\\TestFolder"
     }
   }
 }

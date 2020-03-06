@@ -1,0 +1,3 @@
+Lockhart| Tifa| F| Red| 05/03/1987
+Wallace| Barret| M| Brown| 12/15/1972
+Highwind| Cid| M| Green| 02/22/1975

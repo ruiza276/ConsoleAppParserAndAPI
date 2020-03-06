@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ConsoleParserApp;
+using ConsoleParserApp.Models;
 
 namespace ParserAPI.Controllers
 {
@@ -16,12 +17,6 @@ namespace ParserAPI.Controllers
         ParserApp parserApp = new ParserApp();
         string[] args = new string[3];
 
-
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<Records> _logger;
 
         public Records(ILogger<Records> logger)
@@ -31,7 +26,8 @@ namespace ParserAPI.Controllers
 
 
         [HttpGet]
-        public IActionResult Test()
+        [Route("Test")]
+        public ActionResult Test()
         {
             return Ok("You have reached the Parser Api test endpoint");
         }
@@ -39,7 +35,7 @@ namespace ParserAPI.Controllers
         [HttpGet]
         [Route("gender")]
         [ProducesResponseType(statusCode: 200, type: typeof(string))]
-        public IActionResult GetGenderSorted()
+        public ActionResult GetGenderSorted()
         {
             args[0] = @"C:\Users\aruiz\Desktop\TestFolder\TifaFile.txt";
             args[1] = @"C:\Users\aruiz\Desktop\TestFolder\CloudFile.txt";
@@ -51,7 +47,7 @@ namespace ParserAPI.Controllers
         [HttpGet]
         [Route("birthdate")]
         [ProducesResponseType(statusCode: 200, type: typeof(string))]
-        public IActionResult GetBirthdateSorted()
+        public ActionResult GetBirthdateSorted()
         {
 
             args[0] = @"C:\Users\aruiz\Desktop\TestFolder\TifaFile.txt";
@@ -64,7 +60,7 @@ namespace ParserAPI.Controllers
         [HttpGet]
         [Route("name")]
         [ProducesResponseType(statusCode: 200, type: typeof(string))]
-        public IActionResult GetNameSorted()
+        public ActionResult GetNameSorted()
         {
 
             args[0] = @"C:\Users\aruiz\Desktop\TestFolder\TifaFile.txt";
@@ -73,5 +69,38 @@ namespace ParserAPI.Controllers
             parserApp.GetParserTask(args);
             return Ok(parserApp.lastNameJson);
         }
+
+        [HttpPost]
+        public ActionResult PostSingleLine(Record record)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Bad Data, please send again");
+            }
+            Record rec = new Record();
+            rec.FirstName = record.FirstName;
+            rec.LastName = record.LastName;
+            rec.Gender = record.Gender;
+            rec.FavoriteColor = record.FavoriteColor;
+            rec.DateOfBirth = record.DateOfBirth;
+            if (rec.Gender.Trim().ToUpper() == "F")
+            {
+                rec.GenderFlag = 0;
+
+            }
+            else
+            {
+                rec.GenderFlag = 1;
+            }
+
+            if(rec.DelimiterFlag == null)
+            {
+                rec.DelimiterFlag = " ";
+            }
+
+            return Ok(rec);
+        }
+
+
     }
 }

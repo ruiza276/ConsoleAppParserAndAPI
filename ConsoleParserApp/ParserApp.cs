@@ -57,7 +57,6 @@ namespace ConsoleParserApp
                 var bday = runEngine.PublishBirthdaySortedRecords();
                 var lastName = runEngine.PublishLastNameSortedRecords();
 
-                //genderJson = new StringContent(JsonSerializer.Serialize(gender), Encoding.UTF8, "application/json");
                 genderJson = JsonSerializer.Serialize(gender);
                 bdayJson = JsonSerializer.Serialize(bday);
                 lastNameJson = JsonSerializer.Serialize(lastName);

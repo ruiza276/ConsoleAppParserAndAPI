@@ -1,7 +1,8 @@
 # ConsoleAppParserAndAPI
-Console App takes in text file with formatted records and sorts them and publishes the ordered data to a API endpoint
+Console App takes in text file with formatted records and sorts them and publishes the ordered data to a API endpoint.
+Unit tests included for both.
 
-One Solution file but 2 different and stand alone projects. Here's how to run them in Visual Studio 2019!
+One Solution file but 3 different and stand alone projects. Here's how to run them in Visual Studio 2019!
 
 ConsoleParserApp:
 Set ConsoleParserApp to Start up project in Visual Studio.
@@ -30,7 +31,8 @@ localhost:XXXXX/records --> Send a line of a JSON record.
 
 
 
-
+Unit Tests:
+Please run them using the Test Explorer in Visual Studio!
 
 
 
